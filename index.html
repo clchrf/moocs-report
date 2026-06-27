@@ -46,8 +46,23 @@ body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro TC","PingFang TC","Hel
 .reasons summary::-webkit-details-marker{display:none;}
 .reasons summary::before{content:"› ";font-weight:700;}
 .reasons p{font-size:13.5px;color:#444;line-height:1.75;margin:9px 0;} .reasons b{color:#1d1d1f;}
-@media(max-width:760px){.hero h1{font-size:34px;}.cbody{flex-direction:column;}.right{width:100%;}
-  .ovt th:nth-child(2),.ovt td:nth-child(2),.ovt th:nth-child(4),.ovt td:nth-child(4){display:none;}}
+.ovt-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+@media(max-width:760px){
+  .hero{padding:42px 18px 28px;} .hero h1{font-size:30px;} .hero .sub{font-size:16px;}
+  .wrap{padding:6px 14px 60px;}
+  .overview{padding:22px 18px 24px;border-radius:16px;} .ov-h{font-size:22px;}
+  .stat{min-width:calc(50% - 7px);}
+  .ov-chart-t,.ov-table-t{font-size:16px;}
+  .ovt{font-size:13px;} .ovt th,.ovt td{padding:8px 9px;}
+  .ovt td:nth-child(4),.ovt th:nth-child(4){display:none;}
+  .card{border-radius:16px;} .chead{padding:18px 18px 14px;} .chead h2{font-size:19px;}
+  .cbody{flex-direction:column;gap:14px;padding:16px 18px;}
+  .right{width:100%;} .right img{max-width:260px;}
+  .row{font-size:14px;}
+  .scores{flex-wrap:wrap;gap:6px;} .sc{flex:0 0 calc(33.33% - 4px);}
+  .reasons{padding:12px 18px 16px;}
+}
+@media(max-width:430px){.hero h1{font-size:26px;} .stat .stv{font-size:28px;}}
 </style></head><body>
 <div class="hero">
   <h1>磨課師 AI 課程能力分類標籤表</h1>
@@ -70,6 +85,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro TC","PingFang TC","Hel
     <p class="ov-note">一門課可同時對應多個能力標籤，故總數可能大於課程數。</p>
   </div>
   <div class="ov-table-t">59 門課程一覽　·　點課名可跳至該課詳細卡片</div>
+  <div class="ovt-wrap">
   <table class="ovt">
     <thead><tr><th>#</th><th>編號</th><th>課程名稱</th><th>開課單位</th><th>能力標籤</th><th>難易度</th><th>推薦</th></tr></thead>
     <tbody><tr>
@@ -369,6 +385,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro TC","PingFang TC","Hel
       <td><span class="tg tgC">C</span> <span class="tg tgD">D</span></td><td>進階</td>
       <td class="rec">2</td></tr></tbody>
   </table>
+  </div>
 </section>
     <div class="card" id="c10000022">
       <div class="chead"><span class="cid">10000022</span><h2>機器學習與物聯網資料分析</h2>
