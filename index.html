@@ -1,78 +1,185 @@
-<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html><html lang="zh-Hant"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#F2F2F7" media="(prefers-color-scheme:light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme:dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="description" content="59 門 AI 課程依教育部「未來人才 AI 能力圖像」的能力分類、五面向評分與雷達圖。">
 <title>磨課師 AI 課程能力分類標籤表</title>
 <style>
-*{box-sizing:border-box;-webkit-font-smoothing:antialiased;}
-body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro TC","PingFang TC","Helvetica Neue","Microsoft JhengHei",sans-serif;margin:0;background:#f5f5f7;color:#1d1d1f;line-height:1.5;}
-.hero{text-align:center;padding:64px 24px 40px;background:linear-gradient(180deg,#fbfbfd 0%,#f5f5f7 100%);}
-.hero h1{margin:0;font-size:44px;font-weight:600;letter-spacing:-.022em;}
-.hero .sub{margin:14px auto 0;max-width:680px;font-size:18px;color:#6e6e73;font-weight:400;}
-.hero .meta{margin-top:10px;font-size:13px;color:#86868b;}
-.wrap{max-width:1060px;margin:0 auto;padding:8px 20px 80px;}
-.overview{background:#fff;border-radius:20px;box-shadow:0 4px 24px rgba(0,0,0,.05);padding:30px 32px 34px;margin:18px 0 30px;}
-.ov-h{margin:0 0 22px;font-size:26px;font-weight:600;letter-spacing:-.01em;}
-.ov-stats{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:26px;}
-.stat{flex:1;min-width:120px;background:#f5f5f7;border-radius:16px;padding:20px 10px;text-align:center;}
-.stv{font-size:34px;font-weight:600;color:#1d1d1f;letter-spacing:-.02em;} .stl{font-size:13px;color:#6e6e73;margin-top:4px;}
-.ov-chart{text-align:center;margin:6px 0 26px;}
-.ov-chart-t,.ov-table-t{font-size:17px;font-weight:600;margin:8px 0 12px;text-align:left;}
-.ov-chart img{max-width:580px;width:100%;}
-.ov-note{font-size:12.5px;color:#86868b;margin:8px 0 0;text-align:left;}
-.ovt{width:100%;border-collapse:collapse;font-size:14px;}
-.ovt th{color:#6e6e73;padding:10px 12px;text-align:left;font-weight:500;border-bottom:1px solid #e3e3e6;font-size:13px;}
-.ovt td{padding:10px 12px;border-bottom:1px solid #f0f0f2;vertical-align:middle;}
-.ovt tr:hover td{background:#f9f9fb;}
-.ovt a{color:#0071e3;text-decoration:none;font-weight:500;} .ovt a:hover{text-decoration:underline;}
-.ovt .num{color:#a1a1a6;width:30px;} .ovt .cidc{color:#a1a1a6;font-size:12px;white-space:nowrap;}
+*,*::before,*::after{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;}
+:root{
+  --bg:#F2F2F7; --card:#FFFFFF; --card2:#F2F2F7;
+  --label:#000000; --label2:rgba(60,60,67,.62); --label3:rgba(60,60,67,.34);
+  --sep:rgba(60,60,67,.20); --blue:#007AFF; --navy:#1F3864;
+  --green:#34C759; --orange:#FF9500; --fill:rgba(120,120,128,.12);
+  --blur:saturate(180%) blur(20px); --headerbg:rgba(242,242,247,.82);
+  --tagA:#2E6DB4; --tagB:#5B9BD5; --tagC:#1F3864; --tagD:#7FA8D0;
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#000000; --card:#1C1C1E; --card2:#2C2C2E;
+  --label:#FFFFFF; --label2:rgba(235,235,245,.62); --label3:rgba(235,235,245,.32);
+  --sep:rgba(84,84,88,.65); --blue:#0A84FF; --navy:#8FB0E0;
+  --green:#30D158; --orange:#FF9F0A; --fill:rgba(120,120,128,.24);
+  --blur:saturate(180%) blur(20px); --headerbg:rgba(28,28,30,.78);
+  --tagA:#3D7CB4; --tagB:#4E7BA8; --tagC:#2E5C8A; --tagD:#5B7FA8;
+}}
+:root[data-theme="dark"]{
+  --bg:#000000; --card:#1C1C1E; --card2:#2C2C2E;
+  --label:#FFFFFF; --label2:rgba(235,235,245,.62); --label3:rgba(235,235,245,.32);
+  --sep:rgba(84,84,88,.65); --blue:#0A84FF; --navy:#8FB0E0;
+  --green:#30D158; --orange:#FF9F0A; --fill:rgba(120,120,128,.24);
+  --blur:saturate(180%) blur(20px); --headerbg:rgba(28,28,30,.78);
+  --tagA:#3D7CB4; --tagB:#4E7BA8; --tagC:#2E5C8A; --tagD:#5B7FA8;
+}
+:root[data-theme="light"]{
+  --bg:#F2F2F7; --card:#FFFFFF; --card2:#F2F2F7;
+  --label:#000000; --label2:rgba(60,60,67,.62); --label3:rgba(60,60,67,.34);
+  --sep:rgba(60,60,67,.20); --blue:#007AFF; --navy:#1F3864;
+  --green:#34C759; --orange:#FF9500; --fill:rgba(120,120,128,.12);
+  --blur:saturate(180%) blur(20px); --headerbg:rgba(242,242,247,.82);
+  --tagA:#2E6DB4; --tagB:#5B9BD5; --tagC:#1F3864; --tagD:#7FA8D0;
+}
+
+body{margin:0;background:var(--bg);color:var(--label);
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",
+    "PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;
+  font-size:17px;line-height:1.5;letter-spacing:.01em;
+  -webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;
+  padding-bottom:calc(40px + env(safe-area-inset-bottom));}
+img{max-width:100%;height:auto;}
+.wrap{max-width:1060px;margin:0 auto;padding:0 16px;}
+
+/* 導覽列:半透明毛玻璃,往下捲才浮現標題 */
+.nav{position:sticky;top:0;z-index:50;background:var(--headerbg);
+  -webkit-backdrop-filter:var(--blur);backdrop-filter:var(--blur);
+  border-bottom:.5px solid var(--sep);padding-top:env(safe-area-inset-top);}
+.nav-in{max-width:1060px;margin:0 auto;padding:0 16px;height:44px;
+  display:flex;align-items:center;justify-content:space-between;gap:10px;}
+.nav-title{font-size:17px;font-weight:600;opacity:0;transform:translateY(6px);
+  transition:opacity .22s ease,transform .22s ease;white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis;}
+.nav.scrolled .nav-title{opacity:1;transform:none;}
+.iconbtn{appearance:none;border:0;background:var(--fill);color:var(--blue);
+  width:32px;height:32px;border-radius:50%;font-size:15px;cursor:pointer;
+  display:grid;place-items:center;transition:transform .12s ease;flex:0 0 auto;}
+.iconbtn:active{transform:scale(.9);}
+
+/* 章節捷徑列(取代原本的藍色膠囊列) */
+.jump{position:sticky;top:calc(44px + env(safe-area-inset-top));z-index:40;
+  margin:0 -16px;padding:8px 16px;background:var(--bg);
+  border-bottom:.5px solid var(--sep);}
+.jump-in{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;}
+.jump-in::-webkit-scrollbar{height:0;}
+.jump a{flex:0 0 auto;color:var(--label);background:var(--fill);text-decoration:none;
+  font-size:13px;font-weight:500;padding:6px 12px;border-radius:8px;white-space:nowrap;}
+.jump a:active{background:var(--sep);}
+
+/* 大標題區 */
+.hero{padding:16px 0 6px;}
+.hero h1{font-size:34px;line-height:1.15;font-weight:700;letter-spacing:-.02em;margin:0 0 8px;}
+.hero .sub{margin:0;color:var(--label2);font-size:15px;}
+.hero .meta{margin:6px 0 0;color:var(--label3);font-size:13px;}
+@media(max-width:430px){.hero h1{font-size:28px;}}
+
+/* 區塊卡 */
+.panel,.card,.overview{background:var(--card);border-radius:16px;
+  margin:12px 0;scroll-margin-top:100px;overflow:hidden;}
+.panel{padding:18px 18px 20px;}
+.panel h2,.overview h2,.ov-h{margin:0 0 14px;font-size:20px;font-weight:700;
+  letter-spacing:-.015em;}
+.panel h3{font-size:15px;font-weight:600;margin:18px 0 8px;color:var(--label);}
+
+/* 統計磚 */
+.ov-stats,.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(84px,1fr));
+  gap:10px;margin:14px 0;}
+.stat{background:var(--card2);border-radius:14px;padding:12px 8px;text-align:center;}
+.stv,.stat b{display:block;font-size:24px;font-weight:700;letter-spacing:-.02em;color:var(--label);}
+.stl,.stat span{font-size:12px;color:var(--label2);}
+
+/* 表格:一律可獨立橫向捲動,頁面本身不會橫向溢出 */
+.tblwrap,.ovt-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;
+  margin:0 -18px;padding:0 18px;}
+table{width:100%;border-collapse:collapse;font-size:14px;}
+th{color:var(--label2);padding:9px 10px;text-align:left;font-weight:600;
+  border-bottom:.5px solid var(--sep);font-size:12.5px;white-space:nowrap;}
+td{padding:9px 10px;border-bottom:.5px solid var(--sep);vertical-align:middle;}
+tr:last-child td{border-bottom:0;}
+a{color:var(--blue);}
+
+/* 能力標籤色塊 */
+.tg,.tag{display:inline-block;border-radius:6px;padding:1px 8px;font-size:12px;
+  font-weight:600;color:#fff;margin-right:3px;}
+.tgA{background:var(--tagA);} .tgB{background:var(--tagB);}
+.tgC{background:var(--tagC);} .tgD{background:var(--tagD);}
+.tag{background:var(--tagA);}
+
+/* 頁尾 */
+.foot,.footer-links{margin:28px 0 0;padding:18px 4px 0;border-top:.5px solid var(--sep);
+  font-size:12.5px;color:var(--label2);line-height:1.9;text-align:left;}
+.foot a,.footer-links a{color:var(--blue);text-decoration:none;}
+.foot b,.footer-links b{color:var(--label);}
+
+/* 回頂端 */
+.toTop{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));
+  width:42px;height:42px;border-radius:50%;border:0;cursor:pointer;
+  background:var(--headerbg);-webkit-backdrop-filter:var(--blur);backdrop-filter:var(--blur);
+  color:var(--blue);font-size:17px;box-shadow:0 2px 12px rgba(0,0,0,.16);
+  opacity:0;pointer-events:none;transition:opacity .22s ease;z-index:45;}
+.toTop.show{opacity:1;pointer-events:auto;}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important;}}
+
+.ov-chart{text-align:center;margin:4px 0 14px;}
+.ov-chart-t,.ov-table-t{font-size:15px;font-weight:600;margin:14px 0 8px;color:var(--label);}
+.ov-chart img{max-width:560px;width:100%;border-radius:12px;background:#fff;}
+.ov-note{font-size:12.5px;color:var(--label3);margin:8px 0 0;}
+.ovt .num{color:var(--label3);width:28px;}
+.ovt .cidc{color:var(--label3);font-size:12px;white-space:nowrap;}
 .ovt .rec{font-weight:600;text-align:center;}
-.tg{display:inline-block;border-radius:6px;padding:1px 8px;font-size:12px;font-weight:600;color:#fff;margin-right:3px;}
-.tgA{background:#2E6DB4;} .tgB{background:#5B9BD5;} .tgC{background:#1F3864;} .tgD{background:#7FA8D0;}
-.card{background:#fff;border-radius:20px;box-shadow:0 4px 24px rgba(0,0,0,.05);margin-bottom:22px;overflow:hidden;transition:box-shadow .2s;}
-.card:hover{box-shadow:0 8px 34px rgba(0,0,0,.09);}
-.chead{padding:22px 28px 16px;border-bottom:1px solid #f0f0f2;}
-.chead h2{margin:4px 0;font-size:21px;font-weight:600;letter-spacing:-.01em;display:inline;}
-.cid{font-size:12px;color:#a1a1a6;margin-right:8px;} .cmeta{font-size:13px;color:#6e6e73;margin-top:6px;}
-.cbody{display:flex;gap:22px;padding:20px 28px;}
-.left{flex:1;min-width:0;} .right{width:300px;flex:none;text-align:center;} .right img{width:100%;max-width:300px;}
-.row{font-size:14.5px;margin:7px 0;line-height:1.55;} .row b{color:#1d1d1f;font-weight:600;margin-right:5px;}
-.tag{display:inline-block;background:#2E6DB4;color:#fff;border-radius:7px;padding:1px 10px;font-size:13px;font-weight:600;margin-right:3px;}
-.codes{color:#86868b;font-size:13px;}
-.summary{font-size:14px;color:#333;background:#f5f5f7;border-radius:12px;padding:12px 14px;margin:12px 0;line-height:1.65;}
-.scores{display:flex;gap:8px;margin-top:10px;}
-.sc{flex:1;text-align:center;background:#f5f5f7;border-radius:12px;padding:10px 2px;}
-.scv{font-size:22px;font-weight:600;color:#1d1d1f;} .scl{font-size:11px;color:#6e6e73;margin-top:2px;}
-.reasons{border-top:1px solid #f0f0f2;padding:14px 28px 20px;}
-.reasons summary{cursor:pointer;color:#0071e3;font-weight:600;font-size:14.5px;list-style:none;}
+.ovt a{text-decoration:none;font-weight:500;}
+.chead{padding:14px 16px 12px;border-bottom:.5px solid var(--sep);}
+.chead h2{margin:2px 0;font-size:17px;font-weight:600;letter-spacing:-.01em;display:inline;}
+.cid{font-size:12px;color:var(--label3);margin-right:8px;}
+.cmeta{font-size:12.5px;color:var(--label2);margin-top:5px;}
+.cbody{display:flex;gap:18px;padding:14px 16px;}
+.left{flex:1;min-width:0;}
+.right{width:280px;flex:none;text-align:center;}
+.right img{width:100%;max-width:280px;border-radius:12px;background:#fff;}
+.row{font-size:14px;margin:6px 0;line-height:1.55;}
+.row b{color:var(--label);font-weight:600;margin-right:5px;}
+.codes{color:var(--label3);font-size:12.5px;}
+.summary{font-size:13.5px;color:var(--label2);background:var(--card2);border-radius:12px;
+  padding:11px 13px;margin:11px 0;line-height:1.65;}
+.scores{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-top:10px;}
+.sc{text-align:center;background:var(--card2);border-radius:11px;padding:9px 2px;}
+.scv{font-size:19px;font-weight:700;color:var(--label);}
+.scl{font-size:11px;color:var(--label2);margin-top:2px;}
+.reasons{border-top:.5px solid var(--sep);padding:12px 16px 16px;}
+.reasons summary{cursor:pointer;color:var(--blue);font-weight:600;font-size:14px;list-style:none;}
 .reasons summary::-webkit-details-marker{display:none;}
 .reasons summary::before{content:"› ";font-weight:700;}
-.reasons p{font-size:13.5px;color:#444;line-height:1.75;margin:9px 0;} .reasons b{color:#1d1d1f;}
-.ovt-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
-.footer-links{text-align:center;font-size:13px;color:#6e6e73;padding:18px 12px 4px;line-height:2;}
-.footer-links a{color:#0071e3;text-decoration:none;font-weight:600;} .footer-links a:hover{text-decoration:underline;}
+.reasons p{font-size:13px;color:var(--label2);line-height:1.75;margin:8px 0;}
+.reasons b{color:var(--label);}
 @media(max-width:760px){
-  .hero{padding:42px 18px 28px;} .hero h1{font-size:30px;} .hero .sub{font-size:16px;}
-  .wrap{padding:6px 14px 60px;}
-  .overview{padding:22px 18px 24px;border-radius:16px;} .ov-h{font-size:22px;}
-  .stat{min-width:calc(50% - 7px);}
-  .ov-chart-t,.ov-table-t{font-size:16px;}
-  .ovt{font-size:13px;} .ovt th,.ovt td{padding:8px 9px;}
+  .cbody{flex-direction:column;gap:12px;}
+  .right{width:100%;} .right img{max-width:250px;}
   .ovt td:nth-child(4),.ovt th:nth-child(4){display:none;}
-  .card{border-radius:16px;} .chead{padding:18px 18px 14px;} .chead h2{font-size:19px;}
-  .cbody{flex-direction:column;gap:14px;padding:16px 18px;}
-  .right{width:100%;} .right img{max-width:260px;}
-  .row{font-size:14px;}
-  .scores{flex-wrap:wrap;gap:6px;} .sc{flex:0 0 calc(33.33% - 4px);}
-  .reasons{padding:12px 18px 16px;}
+  .scores{grid-template-columns:repeat(3,1fr);}
 }
-@media(max-width:430px){.hero h1{font-size:26px;} .stat .stv{font-size:28px;}}
 </style></head><body>
-<div class="hero">
-  <h1>磨課師 AI 課程能力分類標籤表</h1>
-  <p class="sub">59 門 AI 課程，依教育部「未來人才 AI 能力圖像」自動標註的能力分類、五面向評分與雷達圖。</p>
-  <p class="meta">分析模型：Claude（Sonnet 4.6・三-agent 整合）　·　含判斷原因逐欄佐證</p>
-</div>
-<div class="wrap">
-<section class="overview">
+<header class="nav"><div class="nav-in">
+<div class="nav-title">能力分類標籤表</div>
+<div class="nav-actions"><button class="iconbtn themeBtn" aria-label="切換深淺色">◐</button></div>
+</div><div class="jump"><div class="jump-in"><a href="#overview">總覽</a><a href="#courses">逐課卡片</a></div></div></header>
+<main class="wrap">
+<section class="hero">
+  <h1>磨課師 AI 課程<br>能力分類標籤表</h1>
+  <p class="sub">59 門 AI 課程，依教育部「未來人才 AI 能力圖像」標註的能力分類、五面向評分與雷達圖。</p>
+  <p class="meta">分析模型：Claude（三-agent 整合）　·　含判斷原因逐欄佐證</p>
+</section>
+
+<section class="panel" id="overview">
   <h2 class="ov-h">總覽</h2>
   
   <div class="ov-stats">
@@ -389,6 +496,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro TC","PingFang TC","Hel
   </table>
   </div>
 </section>
+<section id="courses">
     <div class="card" id="c10000022">
       <div class="chead"><span class="cid">10000022</span><h2>機器學習與物聯網資料分析</h2>
         <div class="cmeta">國立臺灣科技大學 ・ 2021 ・ 5 小時</div></div>
@@ -1922,10 +2030,35 @@ body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro TC","PingFang TC","Hel
         <p><b>課程節奏原因：</b>第一步語速：37字/分鐘，遠低於150字/分鐘門檻，屬嚴重偏慢。第二步贅詞密度：逐字稿呈現大量亂碼（&#x27;Ü Relays Zéloah&#x27;s shark&#x27;、&#x27;Theseouds Music&#x27;）及無意義內容，顯示語音轉錄失敗，代表語音本身含大量停頓、噪音或口誤，停頓比例高達41.4%。第三步截圖變化：截圖畫面資訊密度低，Learning Objectives項目多為空白或截斷，畫面變化不豐富。綜合判斷：拖泥帶水。</p>
         <p><b>先備/職場原因：</b>課程未明確說明先備門檻，但主題需要生物/生命科學領域知識（特定領域知識(其他)）及對機器學習基本概念的了解（機器學習基礎）方能理解AI模型在生物資訊中的應用。職務角色對應研究人員（學術生物資訊研究）與領域應用者(醫療)（基因與蛋白質分析具醫療應用價值）。職場技能對應商業與領域問題分析（理解生物問題如何轉化為AI問題）、AI工具應用（學習使用AI模型分析生物資料）、資料前處理（生物資訊資料通常需特殊前處理）。</p>
       </details>
-    </div>
-  <div class="footer-links">相關報告：<b>磨課師AI課程能力分類標籤表(本頁)</b>　·
-    <a href="https://clchrf.github.io/moocs-validity/">信度指標／方法版</a>　·
-    <a href="https://clchrf.github.io/moocs-validity-detail/">逐課明細卡片版</a>　·
-    <a href="https://clchrf.github.io/moocs-bundles/">主題套裝課程推薦</a></div>
-</div>
+    </div></section>
+<footer class="foot">
+  <div>相關報告：<b>磨課師AI課程能力分類標籤表(本頁)</b>　·　<a href="https://clchrf.github.io/moocs-validity/">信度指標／方法版</a>　·　<a href="https://clchrf.github.io/moocs-validity-detail/">逐課明細卡片版</a>　·　<a href="https://clchrf.github.io/moocs-bundles/">主題套裝課程推薦</a></div>
+  <div style="margin-top:8px">磨課師AI課程系統性盤點與能力導向學習路徑建構計畫　·
+  國立臺灣師範大學電機工程學系　·　計畫主持人：賴以威 副教授</div>
+</footer>
+</main>
+<button class="toTop" aria-label="回到頂端">↑</button>
+<script>
+(function(){
+  var nav=document.querySelector('.nav'), top=document.querySelector('.toTop');
+  function onScroll(){var y=window.scrollY||0;
+    if(nav) nav.classList.toggle('scrolled', y>46);
+    if(top) top.classList.toggle('show', y>600);}
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+  if(top) top.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+  var tb=document.querySelector('.themeBtn');
+  function apply(t){
+    if(t){document.documentElement.setAttribute('data-theme',t);}
+    else{document.documentElement.removeAttribute('data-theme');}
+    try{t?localStorage.setItem('theme',t):localStorage.removeItem('theme');}catch(e){}
+  }
+  try{var s=localStorage.getItem('theme'); if(s) apply(s);}catch(e){}
+  if(tb) tb.addEventListener('click',function(){
+    var cur=document.documentElement.getAttribute('data-theme');
+    var sysDark=window.matchMedia('(prefers-color-scheme:dark)').matches;
+    var now=cur||(sysDark?'dark':'light');
+    apply(now==='dark'?'light':'dark');
+  });
+})();
+</script>
 </body></html>
