@@ -110,6 +110,14 @@ input.f{width:100%;padding:11px 14px;border-radius:12px;border:1px solid var(--s
 .kv .k{color:var(--label3);white-space:nowrap}
 .ok{color:#1f7a3d;font-weight:600}
 .ne{color:#a4442f;font-weight:600}
+.cc-in{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:start}
+@media(max-width:640px){.cc-in{grid-template-columns:1fr}}
+.radar{width:190px;height:190px;flex:none}
+.rg{fill:none;stroke:var(--sep);stroke-width:.8}
+.rv{fill:var(--ndBasicBg);fill-opacity:.75;stroke:var(--lv4);stroke-width:1.6}
+.rd{fill:var(--lv4)}
+.rl{font-size:8.5px;fill:var(--label3)}
+.rn{font-size:9px;font-weight:700;fill:var(--lv4)}
 .links{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
 .links a{font-size:13.5px;color:var(--navy);text-decoration:none;
  background:var(--card2);padding:7px 12px;border-radius:999px}
@@ -122,9 +130,7 @@ input.f{width:100%;padding:11px 14px;border-radius:12px;border:1px solid var(--s
 <button class="iconbtn themeBtn" aria-label="切換深淺色">◐</button></div></header>
 <main class="wrap">
 <section class="hero"><h1>能力分類標籤表</h1><p>59 門課的定稿盤點結果：能力標籤、細項代碼、難易度、課程節奏、推薦均值與分級。此為《結案報告》成果一之完整資料。</p>
-<div class="src"><b>資料來源</b>　磨課師AI課程能力分類標籤表_定稿(AI+同學).xlsx、
-AI_vs_同學_比對結果.json、apply_arbitration.py。本頁數字由程式自上述定稿檔即時產生,
-與《結案報告》同源。<br><b>去識別化</b>　同學一律以代號呈現,不含姓名與逐筆原始標註。</div>
+<div class="src"><b>資料來源</b>　磨課師AI課程能力分類標籤表(定稿)。本頁數字由程式自定稿檔即時產生,與《結案報告》同源。<br><b>去識別化</b>　不含學生姓名與逐筆原始標註。</div>
 </section>
 
 <div class="stats">
@@ -159,7 +165,7 @@ A 級以上共 27 門全數納入 9 組主題套裝（去重後 27 門）。
 <div class="tw"><table><thead><tr><th>代碼</th><th>核心能力</th>
 <th class="num">門數</th><th>占比</th></tr></thead><tbody><tr><td>A-1-IV-1</td><td>理解AI工具以提升專業學習成效</td><td class="num">22</td><td><div class="bar"><i style="width:37%"></i></div></td></tr><tr><td>A-2-IV-1</td><td>建立AI賦能自主學習與終身學習能力</td><td class="num">7</td><td><div class="bar"><i style="width:12%"></i></div></td></tr><tr><td>B-1-IV-1</td><td>具備專業領域之AI倫理與法規素養</td><td class="num">10</td><td><div class="bar"><i style="width:17%"></i></div></td></tr><tr><td>B-2-IV-1</td><td>具備AI資安與風險意識</td><td class="num">9</td><td><div class="bar"><i style="width:15%"></i></div></td></tr><tr><td>B-3-IV-1</td><td>具備價值判斷與當責能力</td><td class="num">3</td><td><div class="bar"><i style="width:5%"></i></div></td></tr><tr><td>C-1-IV-1</td><td>運用AI分析與解決問題的能力</td><td class="num">22</td><td><div class="bar"><i style="width:37%"></i></div></td></tr><tr><td>C-2-IV-1</td><td>強化邏輯思維及跨領域整合能力</td><td class="num">50</td><td><div class="bar"><i style="width:85%"></i></div></td></tr><tr><td>C-3-IV-1</td><td>專業導向的人機協作策劃與流程優化能力</td><td class="num">8</td><td><div class="bar"><i style="width:14%"></i></div></td></tr><tr><td>D-1-IV-1</td><td>善用AI提升判斷與決策力</td><td class="num">4</td><td><div class="bar"><i style="width:7%"></i></div></td></tr><tr><td>D-2-IV-1</td><td>AI協作中的同理心與職場互動能力</td><td class="num">0</td><td><div class="bar"><i style="width:0%"></i></div></td></tr><tr><td>D-3-IV-1</td><td>對真實世界的洞察與創意整合能力</td><td class="num">6</td><td><div class="bar"><i style="width:10%"></i></div></td></tr></tbody></table></div></div>
 
-<div class="sec"><div class="sec-h">其他成果頁</div><div class="links"><a href="https://moocs-ai.github.io/moocs-public/" rel="noopener">社會大眾 AI 課程推薦</a><a href="https://moocs-ai.github.io/moocs-bundles/" rel="noopener">主題套裝課程推薦</a><a href="https://moocs-ai.github.io/moocs-validity/" rel="noopener">信效度驗證結果</a><a href="https://moocs-ai.github.io/moocs-validity-detail/" rel="noopener">逐課比對明細</a></div></div>
+<div class="sec"><div class="sec-h">其他成果頁</div><div class="links"><a href="https://moocs-ai.github.io/moocs-public/" rel="noopener">社會大眾 AI 課程推薦</a><a href="https://moocs-ai.github.io/moocs-bundles/" rel="noopener">主題套裝課程推薦</a><a href="https://moocs-ai.github.io/moocs-validity/" rel="noopener">信效度驗證結果</a><a href="https://moocs-ai.github.io/moocs-validity-detail/" rel="noopener">逐課明細</a></div></div>
 <footer class="foot">磨課師 AI 課程系統性盤點與能力導向學習路徑建構計畫<br>
 國立臺灣師範大學電機工程學系　·　計畫主持人:賴以威 副教授<br>
 <span style="color:var(--label3)">更新日期:2026-08-24</span></footer>
